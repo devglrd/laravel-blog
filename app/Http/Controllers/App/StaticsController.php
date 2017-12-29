@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class StaticsController extends Controller
 {
@@ -14,5 +15,10 @@ class StaticsController extends Controller
         return view(self::PATH_VIEW . 'index')->with([
            'title' => 'Home'
         ]);
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->back();
     }
 }

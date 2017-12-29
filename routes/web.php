@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::group(['prefix' => 'app'], function() {
     Auth::routes();
     Route::get('/', ['uses' => 'App\StaticsController@index']);
+    Route::get('/logout', ['uses' => 'App\StaticsController@logout']);
 });
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', ['uses' => 'Admin\StaticsController@dashboard']);
 });
 
