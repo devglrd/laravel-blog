@@ -19,6 +19,9 @@ Route::group(['prefix' => 'app'], function() {
     Auth::routes();
     Route::get('/', ['uses' => 'App\StaticsController@index']);
 });
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', ['uses' => 'Admin\StaticsController@dashboard']);
+});
 
 
 Route::get('/home', 'HomeController@index')->name('home');
