@@ -34,7 +34,7 @@
 
                 <!-- Pagination -->
                 <ul class="pagination justify-content-center mb-4">
-                    {{-- $posts->links() --}}
+                    {{ $posts->links() }}
                 </ul>
 
             </div>
@@ -80,6 +80,11 @@
                             </div>
                             @endforeach
                         </div>
+                    </div>
+                    <div class="card-footer mb-0">
+                        <span class="d-flex justify-content-center">
+                            {{ $categories->links() }}
+                        </span>
                     </div>
                 </div>
 

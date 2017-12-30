@@ -15,8 +15,9 @@ class StaticsController extends Controller
     public function index()
     {
 
-        $posts = $this->getALlPost();
-        $categories = $this->getAllCategorie();
+        $posts = $this->getAllPostConfirm();
+        $categories = $this->getAllCategorieConfirm();
+
         return view(self::PATH_VIEW . 'index')->with([
             'title'      => 'Home',
             'posts'      => $posts,

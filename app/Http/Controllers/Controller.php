@@ -16,7 +16,7 @@ class Controller extends BaseController
 
     public function getALlPost()
     {
-        $posts = Post::orderBy('id', 'desc')->get();
+        $posts = Post::orderBy('id', 'desc')->paginate(15);
         return $posts;
     }
     public function getAllPostConfirm()
@@ -26,7 +26,7 @@ class Controller extends BaseController
     }
     public function getAllCategorie()
     {
-        $categories = Categorie::orderBy('id', 'desc')->get();
+        $categories = Categorie::orderBy('id', 'desc')->paginate(15);
         return $categories;
     }
     public function getAllCategorieConfirm()
@@ -41,7 +41,7 @@ class Controller extends BaseController
     }
     public function getAllMemberCOnfirm()
     {
-        $users = User::where('fk_role', '>', '1')->orderBy('id', 'desc')->Paginate(30);
+        $users = User::where('fk_role', '>', '1')->orderBy('id', 'desc')->Paginate(25);
         return $users;
     }
 }
