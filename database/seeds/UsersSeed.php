@@ -29,7 +29,7 @@ class UsersSeed extends Seeder
                 'password'   => bcrypt('password'),
                 'email'      => $i . 'membre@gmail.com',
                 'created_at' => now(),
-                'fk_role'    => 1
+                'fk_role'    => rand(1,2),
             ];
             DB::table('users')->insert($data);
         }

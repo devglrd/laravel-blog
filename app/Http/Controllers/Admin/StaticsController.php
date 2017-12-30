@@ -18,21 +18,32 @@ class StaticsController extends Controller
         //dd(Auth::user()->getRole->role != 'admin');
         if ($this->isAdmin()) {
 
+            //COUNT
+            $countUsers = $this->countMember();
+            $countUserConfirm = $this->countMemberConfirm();
+            $countPosts = $this->countPost();
+            $countPostsConfirm = $this->countPostConfirm();
+            $countCategories = $this->countCategories();
+            $countCategoriesConfirm = $this->countCategoriesConfirm();
+
+
+            //DATA
+
             $users = $this->getAllMember();
-            $userConfirm = $this->getAllMemberConfirm();
-            $postsConfirm = $this->getAllPostConfirm();
             $posts = $this->getALlPost();
             $categories = $this->getAllCategorie();
-            $categoriesConfirm = $this->getAllCategorieConfirm();
 
             return view(self::PATH_VIEW . 'dashboard')->with([
-                'title'             => 'Dashboard',
-                'users'             => $users,
-                'usersConfirm'      => $userConfirm,
-                'posts'             => $posts,
-                'postsConfirm'      => $postsConfirm,
-                'categories'        => $categories,
-                'categoriesConfirm' => $categoriesConfirm
+                'title'                 => 'Dashboard',
+                'users'                 => $users,
+                'posts'                 => $posts,
+                'categories'            => $categories,
+                'countUsers'            => $countUsers,
+                'countUsersConfirm'     => $countUserConfirm,
+                'countPosts'            => $countPosts,
+                'countPostsConfirm'     => $countPostsConfirm,
+                'countCategories'       => $countCategories,
+                'countCategoriesConfirm'=> $countCategoriesConfirm
             ]);
         } else {
             return redirect()->back();
@@ -46,6 +57,37 @@ class StaticsController extends Controller
         } else {
             return true;
         }
+    }
+
+    public function countPost()
+    {
+        $posts = Post::all()->count();
+        return $posts;
+    }
+    public function countPostConfirm()
+    {
+        $posts = Post::where('is_confirm', '>', '0')->get()->count();
+        return $posts;
+    }
+    public function countCategories()
+    {
+        $categories = Categorie::all()->count();
+        return $categories;
+    }
+    public function countCategoriesConfirm()
+    {
+        $categories = Categorie::where('is_confirm', '>', '0')->get()->count();
+        return $categories;
+    }
+    public function countMember()
+    {
+        $users = User::all()->count();
+        return $users;
+    }
+    public function countMemberConfirm()
+    {
+        $users = User::where('fk_role', '>', '1')->get()->count();
+        return $users;
     }
 
 }

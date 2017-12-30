@@ -16,30 +16,30 @@ class Controller extends BaseController
 
     public function getALlPost()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
         return $posts;
     }
     public function getAllPostConfirm()
     {
-        $posts = Post::where('is_confirm', '>', '0')->get();
+        $posts = Post::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(15);
         return $posts;
     }
     public function getAllCategorie()
     {
-        $categories = Categorie::all();
+        $categories = Categorie::orderBy('id', 'desc')->get();
         return $categories;
     }
     public function getAllCategorieConfirm()
     {
-        $categories = Categorie::where('is_confirm', '>', '0')->get();
+        $categories = Categorie::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(15);
         return $categories;
     }
     public function getAllMember()
     {
-        $users = User::orderBy('name', 'desc')->paginate(25);
+        $users = User::orderBy('id', 'desc')->paginate(25);
         return $users;
     }
-    public function getAllMemberConfirm()
+    public function getAllMemberCOnfirm()
     {
         $users = User::where('fk_role', '>', '1')->orderBy('id', 'desc')->Paginate(30);
         return $users;
