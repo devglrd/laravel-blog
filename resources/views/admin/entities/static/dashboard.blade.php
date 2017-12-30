@@ -49,8 +49,8 @@
                             <div class="box list-item">
                                 <span class="avatar w-40 text-center rounded info theme"><span class="fa fa-female"></span></span>
                                 <div class="list-body">
-                                    <h4 class="m-0 text-md"><a href="#">40 <span class="text-sm">Orders</span></a></h4>
-                                    <small class="text-muted">38 Shipped.</small>
+                                    <h4 class="m-0 text-md"><a href="#">{{ $categories->count() }} <span class="text-sm">Categories</span></a></h4>
+                                    <small class="text-muted">{{ $categoriesConfirm->count() }} Confirmée.</small>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 <span class="avatar w-40 text-center rounded success"><span class="fa fa-bookmark"></span></span>
                                 <div class="list-body">
                                     <h4 class="m-0 text-md"><a href="#">{{ $users->count() }} <span class="text-sm">Members</span></a></h4>
-                                    <small class="text-muted">{{ $userConfirm  }} VIP.</small>
+                                    <small class="text-muted">{{ $usersConfirm->count()  }} Confirmée.</small>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                             <div class="box list-item">
                                 <span class="avatar w-40 text-center rounded warning"><span class="fa fa-comment"></span></span>
                                 <div class="list-body">
-                                    <h4 class="m-0 text-md"><a href="#">69 <span class="text-sm">Comments</span></a></h4>
-                                    <small class="text-muted">5 approved.</small>
+                                    <h4 class="m-0 text-md"><a href="#">{{ $posts->count() }} <span class="text-sm">Posts</span></a></h4>
+                                    <small class="text-muted">{{ $postsConfirm->count() }} approved.</small>
                                 </div>
                             </div>
                         </div>

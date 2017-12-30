@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Categorie;
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,40 +16,37 @@ class StaticsController extends Controller
     public function dashboard()
     {
         //dd(Auth::user()->getRole->role != 'admin');
-        if ($this->isAdmin()){
+        if ($this->isAdmin()) {
 
             $users = $this->getAllMember();
-
-            $userConfirm = $this->getUserConfirm()->count();
+            $userConfirm = $this->getAllMemberConfirm();
+            $postsConfirm = $this->getAllPostConfirm();
+            $posts = $this->getALlPost();
+            $categories = $this->getAllCategorie();
+            $categoriesConfirm = $this->getAllCategorieConfirm();
 
             return view(self::PATH_VIEW . 'dashboard')->with([
-                'title' => 'Dashboard',
-                'users' => $users,
-                'userConfirm' => $userConfirm
+                'title'             => 'Dashboard',
+                'users'             => $users,
+                'usersConfirm'      => $userConfirm,
+                'posts'             => $posts,
+                'postsConfirm'      => $postsConfirm,
+                'categories'        => $categories,
+                'categoriesConfirm' => $categoriesConfirm
             ]);
-        }else{
+        } else {
             return redirect()->back();
         }
     }
 
     public function isAdmin()
     {
-        if (Auth::user()->getRole->role != 'Admin'){
+        if (Auth::user()->getRole->role != 'Admin') {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
-    public function getAllMember(){
-        $users = User::orderBy('name', 'desc')->paginate(25);
 
-        return $users;
-    }
-
-    public function getUserConfirm()
-    {
-        $users = User::all()->where('fk_role', '>', '1');
-
-        return $users;
-    }
 }
+
