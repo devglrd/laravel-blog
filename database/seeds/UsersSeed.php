@@ -23,16 +23,17 @@ class UsersSeed extends Seeder
             'created_at' => now(),
             'fk_role'    => 3
         ];
-        $data = [
-            'name'       => "Membre",
-            'password'   => bcrypt('password'),
-            'email'      => 'membre@gmail.com',
-            'created_at' => now(),
-            'fk_role'    => 1
-        ];
-
+        for ($i=0;$i<100;$i++){
+            $data = [
+                'name'       => "Membre" . $i,
+                'password'   => bcrypt('password'),
+                'email'      => $i . 'membre@gmail.com',
+                'created_at' => now(),
+                'fk_role'    => 1
+            ];
+            DB::table('users')->insert($data);
+        }
         DB::table('users')->insert($admin);
-        DB::table('users')->insert($data);
 
     }
 }

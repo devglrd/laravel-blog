@@ -14,11 +14,11 @@
 Route::get('/', function () {
     return redirect()->action('App\StaticsController@index');
 });
+Route::get('/logout', ['uses' => 'App\StaticsController@logout']);
 
 Route::group(['prefix' => 'app'], function() {
     Auth::routes();
-    Route::get('/', ['uses' => 'App\StaticsController@index']);
-    Route::get('/logout', ['uses' => 'App\StaticsController@logout']);
+    Route::get('/', ['as' => 'home', 'uses' => 'App\StaticsController@index']);
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', ['uses' => 'Admin\StaticsController@dashboard']);
