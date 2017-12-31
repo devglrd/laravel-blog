@@ -19,6 +19,7 @@ Route::get('/logout', ['uses' => 'App\StaticsController@logout']);
 Route::group(['prefix' => 'app'], function() {
     Auth::routes();
     Route::get('/', ['as' => 'home', 'uses' => 'App\StaticsController@index']);
+    Route::get('/account/confirm', ['uses' => 'App\AuthController@confirmAccount']);
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', ['uses' => 'Admin\StaticsController@dashboard']);

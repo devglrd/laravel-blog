@@ -60,17 +60,24 @@
                         <h5 class="card-header">Action</h5>
                         <div class="card-body">
                             <div class="row justify-content-around">
-                                @if(Auth::user()->is_comfirm < 2)
-                                <button class="mb-3 btn btn-warning">
-                                    Confirmé votre compte !
-                                </button>
+                                @if(Auth::user()->getRole->id < 2)
+                                    <a href="{{ action ('App\AuthController@confirmAccount') }}" class="mb-3 btn btn-warning">
+                                        Confirmer votre compte !
+                                    </a>
+                                    <button disabled class="mb-3 btn btn-danger">
+                                        Ajouter un posts
+                                    </button>
+                                    <button disabled class="mb-3 btn btn-danger">
+                                        Ajouter une categories
+                                    </button>
+                                @else
+                                    <a href="#" class="mb-3 btn btn-success">
+                                        Ajouter un posts
+                                    </a>
+                                    <a href="#" class="mb-3 btn btn-success">
+                                        Ajouter une categories
+                                    </a>
                                 @endif
-                                <button class="mb-3 btn btn-success">
-                                    Ajouter un posts
-                                </button>
-                                <button class="mb-3 btn btn-success">
-                                    Ajouter une categories
-                                </button>
                             </div>
                         </div>
                     </div>
