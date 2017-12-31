@@ -4,6 +4,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="icon" type="public/image/ico" href="{{ asset('favicon.ico') }}"/>
 <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 @yield('css')
 <body class="@yield('bodyClass')">

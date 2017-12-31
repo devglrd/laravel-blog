@@ -19,6 +19,8 @@ Route::get('/logout', ['uses' => 'App\StaticsController@logout']);
 Route::group(['prefix' => 'app'], function() {
     Auth::routes();
     Route::get('/', ['as' => 'home', 'uses' => 'App\StaticsController@index']);
+    Route::get('/posts/create', ['as' => 'posts/create', 'uses' => 'App\StaticsController@showPostForm']);
+    Route::post('/post/create', ['uses' => 'App\StaticsController@postPost']);
     Route::get('/account/confirm', ['uses' => 'App\AuthController@confirmAccount']);
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
