@@ -9889,23 +9889,6 @@ a.text-dark:hover {
   }
 }
 
-body .container .block {
-  width: 10px;
-  height: 10px;
-}
-
-body .container .block span {
-  color: green;
-}
-
-body .container .block.blue {
-  background-color: blue;
-}
-
-body .container .block.red {
-  background-color: red;
-}
-
 body {
   padding-top: 54px;
 }

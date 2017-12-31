@@ -59,7 +59,19 @@
                     <div class="card my-4">
                         <h5 class="card-header">Action</h5>
                         <div class="card-body">
-                            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                            <div class="row justify-content-around">
+                                @if(Auth::user()->is_comfirm < 2)
+                                <button class="mb-3 btn btn-warning">
+                                    Confirmé votre compte !
+                                </button>
+                                @endif
+                                <button class="mb-3 btn btn-success">
+                                    Ajouter un posts
+                                </button>
+                                <button class="mb-3 btn btn-success">
+                                    Ajouter une categories
+                                </button>
+                            </div>
                         </div>
                     </div>
                 @endif

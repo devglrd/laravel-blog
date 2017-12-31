@@ -16,32 +16,32 @@ class Controller extends BaseController
 
     public function getALlPost()
     {
-        $posts = Post::orderBy('id', 'desc')->paginate(15);
+        $posts = Post::orderBy('id', 'desc')->paginate(6);
         return $posts;
     }
     public function getAllPostConfirm()
     {
-        $posts = Post::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(15);
+        $posts = Post::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(6);
         return $posts;
     }
     public function getAllCategorie()
     {
-        $categories = Categorie::orderBy('id', 'desc')->paginate(15);
+        $categories = Categorie::orderBy('id', 'desc')->paginate(6);
         return $categories;
     }
     public function getAllCategorieConfirm()
     {
-        $categories = Categorie::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(15);
+        $categories = Categorie::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(6);
         return $categories;
     }
     public function getAllMember()
     {
-        $users = User::orderBy('id', 'desc')->paginate(25);
+        $users = User::orderBy('id', 'desc')->paginate(6);
         return $users;
     }
     public function getAllMemberCOnfirm()
     {
-        $users = User::where('fk_role', '>', '1')->orderBy('id', 'desc')->Paginate(25);
+        $users = User::where('fk_role', '>', '1')->orderBy('id', 'desc')->Paginate(6);
         return $users;
     }
 }
