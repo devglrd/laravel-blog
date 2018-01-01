@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Co-Blog</a>
+        <a class="navbar-brand" href="{{ action('App\StaticsController@index') }}">Co-Blog</a>
         @if(Auth::check())
             @if(Auth::user()->getRole->id === 3)
             <div class="nav-item">

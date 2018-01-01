@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Role::class, 'id', 'fk_role');
     }
+
+    public function getPost()
+    {
+        return $this->hasMany(Post::class, 'fk_user','id');
+    }
 }

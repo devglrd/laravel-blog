@@ -16,12 +16,13 @@ class Controller extends BaseController
 
     public function getALlPost()
     {
+
         $posts = Post::orderBy('id', 'desc')->paginate(6);
         return $posts;
     }
     public function getAllPostConfirm()
     {
-        $posts = Post::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(6);
+        $posts = Post::where('is_confirm', '>', '0')->orderBy('id', 'desc')->paginate(6);
         return $posts;
     }
     public function getAllCategorie()
@@ -43,5 +44,11 @@ class Controller extends BaseController
     {
         $users = User::where('fk_role', '>', '1')->orderBy('id', 'desc')->Paginate(6);
         return $users;
+    }
+
+    public function getOnePost($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+        return $post;
     }
 }

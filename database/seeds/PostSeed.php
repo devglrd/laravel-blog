@@ -22,6 +22,7 @@ class PostSeed extends Seeder
                 'title'             =>  $title,
                 'slug'              =>  str_slug($title),
                 'content'           =>  $faker->text(),
+                'vote'              => rand(0,10),
                 'url_img'           =>  '750x300',
                 'is_confirm'        => rand(0,1),
                 'fk_user'           =>  rand(1, 101),
