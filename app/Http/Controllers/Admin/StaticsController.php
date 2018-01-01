@@ -59,6 +59,14 @@ class StaticsController extends Controller
         }
     }
 
+    public function confirmPost($slug)
+    {
+        Post::where('slug', $slug)->update([
+           'is_confirm' => 1
+        ]);
+        return redirect()->back();
+    }
+
     public function countPost()
     {
         $posts = Post::all()->count();

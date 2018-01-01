@@ -184,6 +184,9 @@
                                                 <a href="" class="item-title _500">{{ $post->title}}</a>
                                                 <div class="item-except text-sm text-muted h-1x">{{ $post->content }}</div>
                                                 <div class="item-except text-sm text-muted h-1x">{{ $post->getUser->name }}</div>
+                                                @if($post->is_confirm === 0)
+                                                <a href="{{ action('Admin\StaticsController@confirmPost', $slug = $post->slug ) }}" class="btn btn-danger">Confirmé le post</a>
+                                                @endif
                                                 <div class="item-tag tag hide"></div>
                                             </div>
                                             {{--<div>
