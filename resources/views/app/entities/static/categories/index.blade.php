@@ -4,7 +4,7 @@
     <div class="container">
 
         <div class="row">
-            <h1 class="my-4 ml-3">Lasted Posts
+            <h1 class="my-4 ml-3">Toutes les categories
             </h1>
         </div>
         <div class="row">
@@ -41,7 +41,6 @@
             </div>
 
             <!-- Sidebar Widgets Column -->
-            @include('app.partials.widget');
 
         </div>
         <!-- /.row -->

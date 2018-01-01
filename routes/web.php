@@ -24,6 +24,7 @@ Route::group(['prefix' => 'app'], function() {
     Route::get('/post/create', ['as' => 'post/create', 'uses' => 'App\StaticsController@showPostForm']);
     Route::post('/post/create', ['uses' => 'App\StaticsController@postPost']);
     Route::get('/categorie/{slug}', ['uses' => 'App\StaticsController@showPostByCategorie']);
+    Route::get('/account/{name}', ['uses' => 'App\StaticsController@showAccount']);
     Route::get('/account/confirm', ['uses' => 'App\AuthController@confirmAccount']);
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {

@@ -14,6 +14,7 @@
                 <!-- Blog Post -->
                 @if($categorie->getPost->isNotEmpty())
                     @foreach($categorie->getPost as $post)
+                        @if($post->is_confirm > 0)
                         <div class="card mb-4">
                             <img class="card-img-top" src="http://placehold.it/{{ $post->url_img }}" alt="Card image cap">
                             <div class="card-body">
@@ -31,6 +32,7 @@
                                 Votes : <span class="rounded badge badge-success p-2">{{ $post->vote }}</span>
                             </div>
                         </div>
+                        @endif
                     @endforeach
                 @else
                     Pas D'article associé a cette categorie !

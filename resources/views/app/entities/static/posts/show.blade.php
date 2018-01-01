@@ -39,7 +39,7 @@
                             <span class="pr-2">By : </span><a href="#" class="card-text">{{ $post->getUser->name }}</a>
                         </div>
                         <div class="d-flex ">
-                            <span class="pr-2">Categories : </span> <a href="#" class="card-text">{{ $post->getCategorie->categorie }}</a>
+                            <span class="pr-2">Categories : </span> <a href="{{ action('App\StaticsController@showPostByCategorie', $slug = $post->getCategorie->slug) }}" class="card-text">{{ $post->getCategorie->categorie }}</a>
                         </div>
                     </div>
                     <div class="card-footer text-muted">
@@ -61,7 +61,9 @@
                             </div>
                         @endif
                     @else
-                        Vous devez etre connecté pour vote !
+                        <div class="card-footer text-muted">
+                            Vous devez etre connecté pour voter !
+                        </div>
                     @endif
                 </div>
             </div>

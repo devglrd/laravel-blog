@@ -12,6 +12,7 @@ class StaticsController extends Controller
 {
     const PATH_VIEW = 'app.entities.static.';
     const POST_VIEW = 'app.entities.static.posts.';
+    const PATH_ACCOUNT = 'app.entities.static.account.';
     const CATEGORIE_VIEW = 'app.entities.static.categories.';
     const PATH_CONTROLLER = 'App\StaticsController@';
 
@@ -43,6 +44,14 @@ class StaticsController extends Controller
         return view(self::CATEGORIE_VIEW . 'show')->with([
             'categorie' => $postByCategorie,
             'categories' => $widget
+        ]);
+    }
+
+    public function showAccount($name)
+    {
+        $user = $this->getUser($name);
+        return view(self::PATH_ACCOUNT . 'show')->with([
+            'user' => $user
         ]);
     }
 

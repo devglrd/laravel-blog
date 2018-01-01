@@ -35,6 +35,12 @@ class Controller extends BaseController
         $categories = Categorie::where('is_confirm', '>', '0')->orderBy('id', 'desc')->Paginate(6);
         return $categories;
     }
+
+    public function getUser($name)
+    {
+        $user = User::where('name', $name)->first();
+        return $user;
+    }
     public function getAllMember()
     {
         $users = User::orderBy('id', 'desc')->paginate(6);

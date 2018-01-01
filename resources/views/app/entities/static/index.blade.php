@@ -24,7 +24,7 @@
                     <div class="card-footer text-muted">
                         Posted on {{ $post->created_at }},
                         <br>
-                        by <a href="#">{{ $post->getUser->name }}</a>
+                        by <a href="{{ action('App\StaticsController@showAccount', $name = $post->getUser->name) }}">{{ $post->getUser->name }}</a>
                         <br>
                         Categories : <a href="{{ action('App\StaticsController@showPostByCategorie', $slug = $post->getCategorie->slug) }}">{{ $post->getCategorie->categorie }}</a>
                         <br>
