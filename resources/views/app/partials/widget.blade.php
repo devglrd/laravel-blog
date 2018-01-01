@@ -17,11 +17,11 @@
     <!-- Side Widget -->
         @if(Auth::user()->getPost->isNotEmpty())
             <div class="card my-4">
-                <h5 class="card-header">Vous avez des articles en attentes de confirmation <span class="rounded badge-danger px-2">{{ Auth::user()->getPost()->count() }}</span></h5>
+                <h5 class="card-header">Vos article <span class="rounded badge-danger px-2">{{ Auth::user()->getPost()->count() }}</span></h5>
                 <div class="card-body">
                     <div class="row justify-content-around">
                         @foreach(Auth::user()->getPost as $post)
-                            <a href="{{ action('App\StaticsController@showPost', $slug = $post->slug) }}" class="p-2 badge badge-secondary">{{ $post->title }}</a>
+                            <a href="{{ action('App\StaticsController@showPost', $slug = $post->slug) }}" class="p-2 badge {{ $post->is_confirm === 0 ? 'badge-danger' : 'badge-success' }}">{{ $post->title }}</a>
                         @endforeach
                     </div>
                 </div>

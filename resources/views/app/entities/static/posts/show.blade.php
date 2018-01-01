@@ -5,7 +5,11 @@
 
         <div class="row">
             <h1 class="my-4 ml-3">{{ $post->title }}
+                @if($post->is_confirm === 0)
+                    <span style="font-size: 16px" class="badge text-danger bg-light">En attente de confirmation</span>
+                @endif
             </h1>
+
         </div>
         <div class="row">
             <!-- Blog Entries Column -->
