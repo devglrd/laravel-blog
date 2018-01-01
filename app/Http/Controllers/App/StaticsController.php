@@ -12,6 +12,7 @@ class StaticsController extends Controller
 {
     const PATH_VIEW = 'app.entities.static.';
     const POST_VIEW = 'app.entities.static.posts.';
+    const CATEGORIE_VIEW = 'app.entities.static.categories.';
     const PATH_CONTROLLER = 'App\StaticsController@';
 
     public function index()
@@ -32,6 +33,16 @@ class StaticsController extends Controller
         $post = $this->getOnePost($slug);
         return view(self::POST_VIEW . 'show')->with([
            'post' => $post
+        ]);
+    }
+
+    public function showPostByCategorie($slug)
+    {
+        $postByCategorie = Categorie::where('slug', $slug)->first();
+        $widget = $this->getWidget();
+        return view(self::CATEGORIE_VIEW . 'show')->with([
+            'categorie' => $postByCategorie,
+            'categories' => $widget
         ]);
     }
 

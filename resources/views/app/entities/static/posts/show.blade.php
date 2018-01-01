@@ -50,14 +50,18 @@
                     <div class="card-body d-flex">
                         <span>Voter pour cette article </span><span class="ml-3 px-2 py-0 rounded badge-success">{{ $post->vote }}</span>
                     </div>
-                    @if(Auth::user()->id === $post->fk_user)
-                        <div class="card-footer text-muted">
-                            <span>Vous ne pouvez pas voter pour votre propre article !</span>
-                        </div>
+                    @if(Auth::check())
+                        @if(Auth::user()->id === $post->fk_user)
+                            <div class="card-footer text-muted">
+                                <span>Vous ne pouvez pas voter pour votre propre article !</span>
+                            </div>
+                        @else
+                            <div class="card-footer text-muted">
+                                <a href="{{ action('App\StaticsController@vote', $slug = $post->slug) }}" class="btn btn-success">Votez !</a>
+                            </div>
+                        @endif
                     @else
-                        <div class="card-footer text-muted">
-                            <a href="{{ action('App\StaticsController@vote', $slug = $post->slug) }}" class="btn btn-success">Votez !</a>
-                        </div>
+                        Vous devez etre connecté pour vote !
                     @endif
                 </div>
             </div>

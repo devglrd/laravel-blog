@@ -66,7 +66,7 @@
                     <div class="col-lg-6">
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <a href="#">{{ $category->categorie }}</a>
+                                <a href="{{ action('App\StaticsController@showPostByCategorie', $slug = $category->slug) }}">{{ $category->categorie }}</a>
                             </li>
                         </ul>
                     </div>

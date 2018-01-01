@@ -17,8 +17,10 @@ class CategorieSeed extends Seeder
         $faker = Factory::create();
 
         for ($i=0;$i<100;$i++){
+            $categorieName = $faker->name();
             $data[] =[
-                'categorie'             =>  $faker->name(),
+                'categorie'             =>  $categorieName,
+                'slug'                  =>  str_slug($categorieName),
                 'is_confirm'            => rand(0,1),
                 'created_at'            =>  $faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
             ];

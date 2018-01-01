@@ -26,7 +26,7 @@
                         <br>
                         by <a href="#">{{ $post->getUser->name }}</a>
                         <br>
-                        Categories : <a href="#">{{ $post->getCategorie->categorie }}</a>
+                        Categories : <a href="{{ action('App\StaticsController@showPostByCategorie', $slug = $post->getCategorie->slug) }}">{{ $post->getCategorie->categorie }}</a>
                         <br>
                         Votes : <span class="rounded badge badge-success p-2">{{ $post->vote }}</span>
                     </div>
@@ -42,7 +42,7 @@
             </div>
 
             <!-- Sidebar Widgets Column -->
-            @include('app.partials.widget');
+            @include('app.partials.widget')
 
         </div>
         <!-- /.row -->
