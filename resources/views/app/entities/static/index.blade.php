@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <h2 class="card-title">{{ $post->title }}</h2>
                         <p class="card-text">{{ $post->content }}</p>
-                        <a href="{{ action('App\StaticsController@showPost', $slug = $post->slug) }}" class="btn btn-primary">Read More &rarr;</a>
+                        <a href="{{ action('App\StaticsController@showPost', $slug = $post->slug) }}" data-id="{{$post->id}}" id="showPost" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
                         Posted on {{ $post->created_at }},

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\Comment;
 use App\Post;
 use App\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -13,6 +14,14 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+
+    //ici j'ai mes fonction generique
+    public function getCommentByPost($id)
+    {
+        $comment = Comment::where('fk_post_id', $id)->orderBy('id','DESC')->get();
+        return $comment;
+    }
 
     public function getALlPost()
     {

@@ -20,6 +20,9 @@ Route::group(['prefix' => 'app'], function() {
     Auth::routes();
     Route::get('/', ['as' => 'home', 'uses' => 'App\StaticsController@index']);
     Route::get('/post/show/{slug}', ['as' => 'post/show', 'uses' => 'App\StaticsController@showPost']);
+    Route::post('/post/comment/{id}', ['uses' => 'App\StaticsController@postComment']);
+    Route::get('/post/comment/modify/{id}', ['as'=> '/post/comment/modify', 'uses' => 'App\StaticsController@showFormUpdateComment']);
+    Route::post('/post/comment/modify/{id}', ['uses' => 'App\StaticsController@postUpdateComment']);
     Route::get('/post/vote/{slug}', ['uses' => 'App\StaticsController@vote']);
     Route::get('/post/create', ['as' => 'post/create', 'uses' => 'App\StaticsController@showPostForm']);
     Route::post('/post/create', ['uses' => 'App\StaticsController@postPost']);
@@ -34,3 +37,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Route::get('/api/post/{id}', ['uses' => 'App\ApiController@post']);
+Route::get('/api/post/{id}/comment/{comment}', ['uses' => 'App\ApiController@postComment']);
+Route::get('/api/comment/delete/{id}', ['as' => '/post/comment/delete', 'uses' => 'App\ApiController@destroyComment']);
